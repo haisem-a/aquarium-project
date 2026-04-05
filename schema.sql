@@ -19,14 +19,14 @@ CREATE TABLE fishspecies (
 
 -- Tank Species table schema
 CREATE TABLE tankspecies (
-    tank_id INTEGER REFERENCES tanks(tankid),
-    species_code TEXT REFERENCES fishspecies(speciescode)
+    tank_id INTEGER REFERENCES tanks(tank_id),
+    species_code TEXT REFERENCES fishspecies(species_code)
 );
 
 -- Feeding Logs table schema
 CREATE TABLE feedinglogs (
     log_id TEXT PRIMARY KEY,
-    tank_id INTEGER REFERENCES tanks(tankid),
+    tank_id INTEGER REFERENCES tanks(tank_id),
     feed_date DATE,
     food_type TEXT,
     amount_grams FLOAT
@@ -35,7 +35,7 @@ CREATE TABLE feedinglogs (
 -- Water Quality Logs table schema
 CREATE TABLE waterqualitylogs(
     test_id TEXT PRIMARY KEY,
-    tank_id INTEGER REFERENCES tanks(tankid),
+    tank_id INTEGER REFERENCES tanks(tank_id),
     test_date DATE,
     temperature_celsius FLOAT,
     ph FLOAT,
