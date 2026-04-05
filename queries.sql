@@ -57,3 +57,12 @@ VALUES (1, 'COD'),
 (7, 'DOG'),
 (7, 'BET'),
 (7, 'ILL');
+
+INSERT INTO feedinglogs
+(log_id, tank_id, feed_date, food_type, amount_grams)
+VALUES ('L1', 1, '2003-07-29', 'Pellets', '45'),
+('L2', 2, '2003-07-29', 'Flakes', '50'),
+('L3', 3, '2003-07-29', 'Pellets', '45'),
+('L4', 4, NULL, NULL, NULL),
+('L6', 6, '2003-08-20', 'Brine Shrimp', '165'),
+('L7', 7, '2003-07-28', 'Algae', '70');
