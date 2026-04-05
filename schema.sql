@@ -16,3 +16,9 @@ CREATE TABLE fishspecies (
     scientific_name TEXT,
     ideal_temperature_c FLOAT
 );
+
+-- Tank Species table schema
+CREATE TABLE tankspecies (
+    tankid INTEGER REFERENCES tanks(tankid),
+    speciescode TEXT REFERENCES fishspecies(speciescode)
+);
