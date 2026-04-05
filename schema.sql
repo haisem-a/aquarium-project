@@ -14,7 +14,7 @@ CREATE TABLE fishspecies (
     species_id TEXT,
     common_name TEXT,
     scientific_name TEXT,
-    ideal_temperature_c FLOAT
+    ideal_temperature_celsius FLOAT
 );
 
 -- Tank Species table schema
@@ -30,4 +30,16 @@ CREATE TABLE feedinglogs (
     feed_date DATE,
     food_type TEXT,
     amount_grams FLOAT
+);
+
+-- Water Quality Logs table schema
+CREATE TABLE waterqualitylogs(
+    test_id TEXT PRIMARY KEY,
+    tank_id INTEGER REFERENCES tanks(tankid),
+    test_date DATE,
+    temperature_celsius FLOAT,
+    ph FLOAT,
+    saltinity_ppt FLOAT,
+    hardness_ppm FLOAT,
+    nitrite_ppm FLOAT
 );
