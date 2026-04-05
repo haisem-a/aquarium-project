@@ -32,3 +32,28 @@ VALUES ('COD', 'A', 'Atlantic Cod', 'Gadus Morhua', 5),
 ('ISJ', 'T', 'Island Jack', 'Ferdauia Orthogrammus', 10),
 ('DOG', 'U', 'Dogtooth Tuna', 'Gymnosarda Unicolor', 16),
 ('BRW', 'V', 'Brown Trout', 'Salmo Trutta', 5);
+
+INSERT INTO tankspecies
+(tank_id, species_code)
+VALUES (1, 'COD'),
+(1, 'LIN'),
+(1, 'BRW'),
+(2, 'MOL'),
+(2, 'RJM'),
+(2, 'BRT'),
+(2, 'KAN'),
+(3, 'HAD'),
+(3, 'ISJ'),
+(4, 'SQR'),
+(4, 'TFT'),
+(4, 'PAL'),
+(5, 'ANG'),
+(5, 'GAR'),
+(5, 'TEN'),
+(5, 'SAL'),
+(6, 'BUL'),
+(7, 'GAF'),
+(7, 'WHG'),
+(7, 'DOG'),
+(7, 'BET'),
+(7, 'ILL');
