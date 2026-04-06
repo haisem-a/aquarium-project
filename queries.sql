@@ -9,29 +9,37 @@ VALUES (1, 115, 'freshwater', 'semi-open', 'outdoor exhibit', '2a'),
 (7, 216, 'saltwater', 'semi-open', 'filtration room', '1a');
 
 INSERT INTO fishspecies
-(species_code, species_id, common_name, scientific_name, ideal_temperature_celsius)
-VALUES ('COD', 'A', 'Atlantic Cod', 'Gadus Morhua', 5),
-('RJM', 'B', 'Spotted Ray', 'Raja Montagui', 12),
-('HAD', 'C', 'Haddock', 'Melanogrammus Aeglefinus', 9),
-('SQR', 'D', 'European Squid', 'Loligo Vulgaris', 19),
-('GAR', 'E', 'Garfish', 'Belone Belone', 25),
-('LIN', 'F', 'Ling', 'Molva Molva', 6),
-('ILL', 'G', 'Shortfin Squids Nei', 'Illex Spp', 15),
-('TFT', 'H', 'Yellowfin Tuna', 'Thunnus Albacares', 19),
-('MOL', 'I', 'Common Mola', 'Mola Mola', 14),
-('BET', 'J', 'Bigeye Tuna', 'Thunnus Obesus', 15),
-('BRT', 'K', 'Brown Tang', 'Zebrasoma Scopas', 14),
-('BUL', 'L', 'Bullhead', 'Cottus Gobio', 6),
-('TEN', 'M', 'Tench', 'Tinca Tinca', 27),
-('KAN', 'N', 'King Angelfish', 'Holacanthus Passer', 15),
-('GAF', 'O', 'Grey Angelfish', 'Pomacanthus Arcuatus', 14),
-('SAL', 'P', 'Atlantic Salmon', 'Salmo Salar', 27),
-('PAL', 'Q', 'Palometa', 'Trachinotus Goodei', 19),
-('WHG', 'R', 'White Grunt', 'Haemulon Plumierii', 15),
-('ANG', 'S', 'Eel', 'Anguilla Anguilla ', 28),
-('ISJ', 'T', 'Island Jack', 'Ferdauia Orthogrammus', 10),
-('DOG', 'U', 'Dogtooth Tuna', 'Gymnosarda Unicolor', 16),
-('BRW', 'V', 'Brown Trout', 'Salmo Trutta', 5);
+(species_code, common_name, scientific_name, ideal_temperature_celsius)
+VALUES ('COD', 'Atlantic Cod', 'Gadus Morhua', 5),
+('RJM', 'Spotted Ray', 'Raja Montagui', 12),
+('HAD', 'Haddock', 'Melanogrammus Aeglefinus', 9),
+('SQR', 'European Squid', 'Loligo Vulgaris', 19),
+('GAR', 'Garfish', 'Belone Belone', 25),
+('LIN', 'Ling', 'Molva Molva', 6),
+('ILL', 'Shortfin Squids Nei', 'Illex Spp', 15),
+('TFT', 'Yellowfin Tuna', 'Thunnus Albacares', 19),
+('MOL', 'Common Mola', 'Mola Mola', 14),
+('BET', 'Bigeye Tuna', 'Thunnus Obesus', 15),
+('BRT', 'Brown Tang', 'Zebrasoma Scopas', 14),
+('BUL', 'Bullhead', 'Cottus Gobio', 6),
+('TEN', 'Tench', 'Tinca Tinca', 27),
+('KAN', 'King Angelfish', 'Holacanthus Passer', 15),
+('GAF', 'Grey Angelfish', 'Pomacanthus Arcuatus', 14),
+('SAL', 'Atlantic Salmon', 'Salmo Salar', 27),
+('PAL', 'Palometa', 'Trachinotus Goodei', 19),
+('WHG', 'White Grunt', 'Haemulon Plumierii', 15),
+('ANG', 'Eel', 'Anguilla Anguilla ', 28),
+('ISJ', 'Island Jack', 'Ferdauia Orthogrammus', 10),
+('DOG', 'Dogtooth Tuna', 'Gymnosarda Unicolor', 16),
+('BRW', 'Brown Trout', 'Salmo Trutta', 5);
+
+UPDATE fishspecies
+SET ideal_water_type = 'Freshwater'
+WHERE species_code IN ('COD', 'GAR', 'LIN', 'BUL', 'TEN', 'SAL', 'ANG', 'BRW');
+
+UPDATE fishspecies
+SET ideal_water_type = 'Saltwater'
+WHERE species_code IN ('RJM', 'HAD', 'SQR', 'ILL', 'TFT', 'MOL', 'BET', 'BRT', 'KAN', 'GAF', 'PAL', 'WHG', 'ISJ', 'DOG');
 
 INSERT INTO tankspecies
 (tank_id, species_code)
