@@ -17,6 +17,10 @@ CREATE TABLE fishspecies (
     ideal_temperature_celsius FLOAT
 );
 
+ALTER TABLE fishspecies DROP COLUMN species_id;
+
+ALTER TABLE fishspecies ADD COLUMN ideal_water_type TEXT;
+
 -- Tank Species table schema
 CREATE TABLE tankspecies (
     tank_id INTEGER REFERENCES tanks(tank_id),
@@ -33,13 +37,13 @@ CREATE TABLE feedinglogs (
 );
 
 -- Water Quality Logs table schema
-CREATE TABLE waterqualitylogs(
+CREATE TABLE waterqualitylogs (
     test_id TEXT PRIMARY KEY,
     tank_id INTEGER REFERENCES tanks(tank_id),
     test_date DATE,
     temperature_celsius FLOAT,
     ph FLOAT,
-    saltinity_ppt FLOAT,
+    salinity_ppt FLOAT,
     hardness_ppm FLOAT,
     nitrite_ppm FLOAT
 );
