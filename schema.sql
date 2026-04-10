@@ -25,6 +25,7 @@ ALTER TABLE fishspecies ADD COLUMN ideal_water_type TEXT;
 CREATE TABLE tankspecies (
     tank_id INTEGER REFERENCES tanks(tank_id),
     species_code TEXT REFERENCES fishspecies(species_code)
+    PRIMARY KEY (tank_id, species_code)
 );
 
 -- Feeding Logs table schema
