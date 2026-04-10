@@ -96,3 +96,8 @@ VALUES ('T1' , 1, '2003-07-29', 5, 7.6, 0.5, 30, 0.08),
 INSERT INTO waterqualitylogs
 (test_id, tank_id, test_date, temperature_celsius, ph, salinity_ppt, hardness_ppm, nitrite_ppm)
 VALUES ('T5', 6, '2003-08-02', 23, 6.8, 0.2, 25, 0.02);
+
+UPDATE waterqualitylogs
+SET salinity_ppt = salinity_ppt + 2,
+    ph = ph + 0.4
+WHERE salinity_ppt > 2;
