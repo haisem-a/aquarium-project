@@ -1,3 +1,4 @@
+-- Inserts for tanks table
 INSERT INTO tanks
 (tank_id, size_litres, water_type, system_type, location_type, location)
 VALUES (1, 115, 'freshwater', 'semi-open', 'outdoor exhibit', '2a'),
@@ -8,6 +9,7 @@ VALUES (1, 115, 'freshwater', 'semi-open', 'outdoor exhibit', '2a'),
 (6, 421, 'freshwater', 'open', 'outdoor exhibit', '2c'),
 (7, 216, 'saltwater', 'semi-open', 'filtration room', '1a');
 
+--Inserts for fish species table
 INSERT INTO fishspecies
 (species_code, common_name, scientific_name, ideal_temperature_celsius)
 VALUES ('COD', 'Atlantic Cod', 'Gadus Morhua', 5),
@@ -41,6 +43,7 @@ UPDATE fishspecies
 SET ideal_water_type = 'Saltwater'
 WHERE species_code IN ('RJM', 'HAD', 'SQR', 'ILL', 'TFT', 'MOL', 'BET', 'BRT', 'KAN', 'GAF', 'PAL', 'WHG', 'ISJ', 'DOG');
 
+-- Inserts for tank species table
 INSERT INTO tankspecies
 (tank_id, species_code)
 VALUES (1, 'COD'),
@@ -66,6 +69,7 @@ VALUES (1, 'COD'),
 (7, 'BET'),
 (7, 'ILL');
 
+-- Inserts for feeding logs table
 INSERT INTO feedinglogs
 (log_id, tank_id, feed_date, food_type, amount_grams)
 VALUES ('L1', 1, '2003-07-29', 'Pellets', '45'),
@@ -75,6 +79,11 @@ VALUES ('L1', 1, '2003-07-29', 'Pellets', '45'),
 ('L6', 6, '2003-08-20', 'Brine Shrimp', '165'),
 ('L7', 7, '2003-07-28', 'Algae', '70');
 
+INSERT INTO feedinglogs
+(log_id, tank_id, feed_date, food_type, amount_grams)
+VALUES ('L5', 5, '2003-08-02', 'Flakes', '60.3')
+
+-- Inserts for water quality logs table
 INSERT INTO waterqualitylogs
 (test_id, tank_id, test_date, temperature_celsius, ph, salinity_ppt, hardness_ppm, nitrite_ppm)
 VALUES ('T1' , 1, '2003-07-29', 5, 7.6, 0.5, 30, 0.08),
