@@ -81,7 +81,7 @@ VALUES ('L1', 1, '2003-07-29', 'Pellets', '45'),
 
 INSERT INTO feedinglogs
 (log_id, tank_id, feed_date, food_type, amount_grams)
-VALUES ('L5', 5, '2003-08-02', 'Flakes', '60.3')
+VALUES ('L5', 5, '2003-08-02', 'Flakes', '60.3');
 
 -- Inserts for water quality logs table
 INSERT INTO waterqualitylogs
@@ -92,3 +92,7 @@ VALUES ('T1' , 1, '2003-07-29', 5, 7.6, 0.5, 30, 0.08),
 ('T4' , 4, '2003-07-29', 21, 8.4, 37, 290, 0.31),
 ('T6' , 6, '2003-08-20', 4, 7.2, 0.4, 25, 0.02),
 ('T7' , 7, '2003-07-28', 15, 8.3, 39, 320, 0.11);
+
+INSERT INTO waterqualitylogs
+(test_id, tank_id, test_date, temperature_celsius, ph, salinity_ppt, hardness_ppm, nitrite_ppm)
+VALUES ('T5', 6, '2003-08-02', 23, 6.8, 0.2, 25, 0.02);
