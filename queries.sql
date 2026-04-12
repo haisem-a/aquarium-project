@@ -121,3 +121,8 @@ WHERE location LIKE '1%';
 SELECT DISTINCT food_type, tank_id, amount_grams FROM feedinglogs
 ORDER BY amount_grams DESC
 LIMIT 4 OFFSET 2;
+
+--Show which fish belong to which tank using their common names
+SELECT tanks.tank_id, common_name FROM tanks
+JOIN tankspecies ON tankspecies.tank_id = tanks.tank_id
+JOIN fishspecies ON fishspecies.species_code = tankspecies.species_code;
