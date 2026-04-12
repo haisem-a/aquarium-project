@@ -112,3 +112,7 @@ WHERE water_type = 'saltwater';
 --List all tanks where the amount of water is between 95 and 125 litres
 SELECT * FROM tanks
 WHERE size_litres BETWEEN 95 AND 125;
+
+--List all tanks where the location is in 1a, 1b, or 1c
+SELECT * FROM tanks
+WHERE location LIKE '1%';
