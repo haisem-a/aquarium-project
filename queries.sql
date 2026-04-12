@@ -104,3 +104,7 @@ WHERE salinity_ppt > 2;
 
 --List all fish species and their scientific names
 SELECT common_name, scientific_name FROM fishspecies;
+
+--List all tanks that contain saltwater
+SELECT tank_id FROM tanks
+WHERE water_type = 'saltwater';
