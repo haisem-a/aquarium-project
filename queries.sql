@@ -101,3 +101,6 @@ UPDATE waterqualitylogs
 SET salinity_ppt = salinity_ppt + 2,
     ph = ph + 0.4
 WHERE salinity_ppt > 2;
+
+--List all fish species and their scientific names
+SELECT common_name, scientific_name FROM fishspecies;
