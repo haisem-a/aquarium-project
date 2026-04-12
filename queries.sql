@@ -108,3 +108,7 @@ SELECT common_name, scientific_name FROM fishspecies;
 --List all tanks that contain saltwater
 SELECT tank_id FROM tanks
 WHERE water_type = 'saltwater';
+
+--List all tanks where the amount of water is between 95 and 125 litres
+SELECT * FROM tanks
+WHERE size_litres BETWEEN 95 AND 125;
