@@ -9,6 +9,10 @@ VALUES (1, 115, 'freshwater', 'semi-open', 'outdoor exhibit', '2a'),
 (6, 421, 'freshwater', 'open', 'outdoor exhibit', '2c'),
 (7, 216, 'saltwater', 'semi-open', 'filtration room', '1a');
 
+INSERT INTO tanks
+(tank_id, size_litres, water_type, system_type, location_type, location)
+VALUES (8, 264, 'freshwater', 'semi-open', 'outdoor exhibit', '2d');
+
 --Inserts for fish species table
 INSERT INTO fishspecies
 (species_code, common_name, scientific_name, ideal_temperature_celsius)
@@ -124,5 +128,5 @@ LIMIT 4 OFFSET 2;
 
 --Show which fish belong to which tank using their common names
 SELECT tanks.tank_id, common_name FROM tanks
-JOIN tankspecies ON tankspecies.tank_id = tanks.tank_id
-JOIN fishspecies ON fishspecies.species_code = tankspecies.species_code;
+INNER JOIN tankspecies ON tankspecies.tank_id = tanks.tank_id
+INNER JOIN fishspecies ON fishspecies.species_code = tankspecies.species_code;
