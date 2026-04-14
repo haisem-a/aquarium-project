@@ -130,3 +130,7 @@ LIMIT 4 OFFSET 2;
 SELECT tanks.tank_id, common_name FROM tanks
 INNER JOIN tankspecies ON tankspecies.tank_id = tanks.tank_id
 INNER JOIN fishspecies ON fishspecies.species_code = tankspecies.species_code;
+
+--Show all tanks and the fish they carry, as well as tanks with no fish
+SELECT tanks.tank_id, species_code FROM tanks
+LEFT JOIN tankspecies ON tanks.tank_id = tankspecies.tank_id
