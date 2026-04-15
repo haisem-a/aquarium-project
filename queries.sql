@@ -145,3 +145,6 @@ SELECT * FROM feedinglogs
 WHERE feed_date IS NOT NULL
  AND food_type IS NOT NULL 
  AND amount_grams IS NOT NULL;
+
+--Show the amount of food served in kilograms instead of grams
+SELECT amount_grams / 1000.0 AS amount_kilograms FROM feedinglogs;
