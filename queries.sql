@@ -155,3 +155,9 @@ AND amount_grams IS NOT NULL;
 
 --Show the amount of food served in kilograms instead of grams
 SELECT amount_grams / 1000.0 AS amount_kilograms FROM feedinglogs;
+
+--Show tanks where the number of fish species inside is odd
+SELECT tank_id, COUNT(species_code) AS total_species FROM tankspecies
+GROUP BY tank_id
+HAVING COUNT(species_code) % 2 = 1
+ORDER BY tank_id;
