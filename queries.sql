@@ -73,6 +73,13 @@ VALUES (1, 'COD'),
 (7, 'BET'),
 (7, 'ILL');
 
+DELETE FROM tankspecies
+WHERE ctid NOT IN (
+    SELECT MIN(ctid)
+    FROM tankspecies
+    GROUP BY tank_id, species_code
+);
+
 -- Inserts for feeding logs table
 INSERT INTO feedinglogs
 (log_id, tank_id, feed_date, food_type, amount_grams)
@@ -143,8 +150,8 @@ WHERE feed_date IS NULL;
 --Show the feeding logs only for the tanks that were fed
 SELECT * FROM feedinglogs
 WHERE feed_date IS NOT NULL
- AND food_type IS NOT NULL 
- AND amount_grams IS NOT NULL;
+AND food_type IS NOT NULL 
+AND amount_grams IS NOT NULL;
 
 --Show the amount of food served in kilograms instead of grams
 SELECT amount_grams / 1000.0 AS amount_kilograms FROM feedinglogs;
