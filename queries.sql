@@ -173,3 +173,8 @@ SELECT MIN(hardness_ppm) AS minimum_hardness_ppm_freshwater, MAX(hardness_ppm) A
 FROM waterqualitylogs
 JOIN tanks ON waterqualitylogs.tank_id = tanks.tank_id
 WHERE water_type = 'freshwater';
+
+--Compare the average ph of the two different water types
+SELECT water_type, AVG(ph) AS average_ph FROM waterqualitylogs
+JOIN tanks ON waterqualitylogs.tank_id = tanks.tank_id
+GROUP BY water_type;
