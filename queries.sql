@@ -161,3 +161,15 @@ SELECT tank_id, COUNT(species_code) AS total_species FROM tankspecies
 GROUP BY tank_id
 HAVING COUNT(species_code) % 2 = 1
 ORDER BY tank_id;
+
+--Show the minimum and maximum water hardness levels for saltwater tanks
+SELECT MIN(hardness_ppm) AS minimum_hardness_ppm_saltwater, MAX(hardness_ppm) AS maximum_hardness_ppm_saltwater
+FROM waterqualitylogs
+JOIN tanks ON waterqualitylogs.tank_id = tanks.tank_id
+WHERE water_type = 'saltwater';
+
+--Show the minimum and maximum water hardness levels for freshwater tanks
+SELECT MIN(hardness_ppm) AS minimum_hardness_ppm_freshwater, MAX(hardness_ppm) AS maximum_hardness_ppm_freshwater
+FROM waterqualitylogs
+JOIN tanks ON waterqualitylogs.tank_id = tanks.tank_id
+WHERE water_type = 'freshwater';
