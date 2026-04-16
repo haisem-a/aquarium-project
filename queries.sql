@@ -178,3 +178,6 @@ WHERE water_type = 'freshwater';
 SELECT water_type, AVG(ph) AS average_ph FROM waterqualitylogs
 JOIN tanks ON waterqualitylogs.tank_id = tanks.tank_id
 GROUP BY water_type;
+
+--Find out how many grams of food were fed to the fish in total, and return the total in kilograms
+SELECT SUM(amount_grams) / 1000.0 AS total_amount_fed_kilograms FROM feedinglogs;
