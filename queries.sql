@@ -113,6 +113,10 @@ SET salinity_ppt = salinity_ppt + 2,
     ph = ph + 0.4
 WHERE salinity_ppt > 2;
 
+UPDATE waterqualitylogs
+SET tank_id = 5
+WHERE test_id = 'T5';
+
 --List all fish species and their scientific names
 SELECT common_name, scientific_name FROM fishspecies;
 
@@ -199,3 +203,12 @@ INNER JOIN tankspecies ON fishspecies.species_code = tankspecies.species_code
 INNER JOIN feedinglogs on feedinglogs.tank_id = tankspecies.tank_id;
 
 SELECT * FROM species_food;
+
+--Create a view which makes it easy to see which fish are living outside of their ideal temperatures and by how much
+CREATE VIEW temperature_variance AS
+SELECT scientific_name, ideal_temperature_celsius - temperature_celsius AS temperature_difference
+FROM waterqualitylogs
+INNER JOIN tankspecies ON waterqualitylogs.tank_id = tankspecies.tank_id
+INNER JOIN fishspecies ON fishspecies.species_code = tankspecies.species_code;
+
+SELECT * FROM temperature_variance;
