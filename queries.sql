@@ -181,3 +181,12 @@ GROUP BY water_type;
 
 --Find out how many grams of food were fed to the fish in total, and return the total in kilograms
 SELECT SUM(amount_grams) / 1000.0 AS total_amount_fed_kilograms FROM feedinglogs;
+
+--Create a view to make it easy to see how many fish there are per tank
+CREATE VIEW tank_species_count_view AS
+SELECT tank_id, COUNT(species_code) AS species_count
+FROM tankspecies
+GROUP BY tank_id
+ORDER BY tank_id ASC;
+
+SELECT * FROM tank_species_count_view;
