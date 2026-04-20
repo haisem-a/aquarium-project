@@ -190,3 +190,12 @@ GROUP BY tank_id
 ORDER BY tank_id ASC;
 
 SELECT * FROM tank_species_count_view;
+
+--Create a view which makes it easy to see which fish ate what food
+CREATE VIEW species_food AS
+SELECT common_name, food_type
+FROM fishspecies
+INNER JOIN tankspecies ON fishspecies.species_code = tankspecies.species_code
+INNER JOIN feedinglogs on feedinglogs.tank_id = tankspecies.tank_id;
+
+SELECT * FROM species_food;
