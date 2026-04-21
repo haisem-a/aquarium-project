@@ -212,3 +212,21 @@ INNER JOIN tankspecies ON waterqualitylogs.tank_id = tankspecies.tank_id
 INNER JOIN fishspecies ON fishspecies.species_code = tankspecies.species_code;
 
 SELECT * FROM temperature_variance;
+
+--Create a stored procedure to move fish between tanks
+CREATE PROCEDURE change_fish_tank (
+    p_species_code TEXT,
+    p_old_tank_id INTEGER,
+    p_new_tank_id INTEGER
+)
+LANGUAGE plpgsql
+AS $BODY$
+BEGIN
+    UPDATE tankspecies
+    SET tank_id = p_new_tank_id
+    WHERE tank_id = p_old_tank_id
+    AND species_code = p_species_code;
+END
+$BODY$;
+
+--CALL change_fish_tank ('COD', 1, 7);
