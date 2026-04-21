@@ -230,3 +230,19 @@ END
 $BODY$;
 
 --CALL change_fish_tank ('COD', 1, 7);
+
+--Create a stored procedure to delete a tank
+CREATE PROCEDURE delete_tank (
+    p_tank_id INTEGER
+)
+LANGUAGE plpgsql
+AS $BODY$
+BEGIN
+    DELETE FROM tankspecies WHERE tank_id = p_tank_id;
+    DELETE FROM feedinglogs WHERE tank_id = p_tank_id;
+    DELETE FROM waterqualitylogs WHERE tank_id = p_tank_id;
+    DELETE FROM tanks WHERE tank_id = p_tank_id;
+END
+$BODY$;
+
+--CALL delete_tank (3);
