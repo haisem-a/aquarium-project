@@ -146,9 +146,9 @@ INNER JOIN fishspecies ON fishspecies.species_code = tankspecies.species_code;
 SELECT tanks.tank_id, species_code FROM tanks
 LEFT JOIN tankspecies ON tanks.tank_id = tankspecies.tank_id;
 
---Show the location of the tank which doesn't have a feeding log
-SELECT tanks.tank_id, location, feed_date FROM feedinglogs
-JOIN tanks ON feedinglogs.tank_id = tanks.tank_id
+--Show the location of the tanks which have no feeding logs
+SELECT tanks.tank_id, location, feed_date FROM tanks
+LEFT JOIN feedinglogs ON tanks.tank_id = feedinglogs.tank_id
 WHERE feed_date IS NULL;
 
 --Show the feeding logs only for the tanks that were fed
