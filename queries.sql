@@ -246,3 +246,7 @@ END
 $BODY$;
 
 --CALL delete_tank (3);
+
+--Create an index to speed up lookups and joins on the tankspecies table
+CREATE INDEX tankspecies_idx
+ON tankspecies (tank_id, species_code);
