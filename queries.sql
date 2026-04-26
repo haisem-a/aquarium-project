@@ -134,8 +134,9 @@ WHERE location LIKE '1%';
 
 --Show the unique food types ordered by the amount fed, excluding the top-fed tank and returning only 4
 SELECT DISTINCT food_type, tank_id, amount_grams FROM feedinglogs
+WHERE food_type IS NOT NULL
 ORDER BY amount_grams DESC
-LIMIT 4 OFFSET 2;
+LIMIT 4 OFFSET 1;
 
 --Show which fish belong to which tank using their common names
 SELECT tanks.tank_id, common_name FROM tanks
