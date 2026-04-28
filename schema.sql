@@ -8,6 +8,9 @@ CREATE TABLE tanks (
     location TEXT
 );
 
+ALTER TABLE tanks
+ALTER COLUMN size_litres TYPE NUMERIC(8,2);
+
 -- Fish Species table schema
 CREATE TABLE fishspecies (
     species_code TEXT PRIMARY KEY,
@@ -36,6 +39,9 @@ CREATE TABLE feedinglogs (
     food_type TEXT,
     amount_grams FLOAT
 );
+
+ALTER TABLE feedinglogs
+ALTER COLUMN amount_grams TYPE NUMERIC(8,2);
 
 -- Water Quality Logs table schema
 CREATE TABLE waterqualitylogs (

@@ -83,16 +83,16 @@ WHERE ctid NOT IN (
 -- Inserts for feeding logs table
 INSERT INTO feedinglogs
 (log_id, tank_id, feed_date, food_type, amount_grams)
-VALUES ('L1', 1, '2003-07-29', 'Pellets', '45'),
-('L2', 2, '2003-07-29', 'Flakes', '50'),
-('L3', 3, '2003-07-29', 'Pellets', '45'),
+VALUES ('L1', 1, '2003-07-29', 'Pellets', 45),
+('L2', 2, '2003-07-29', 'Flakes', 50),
+('L3', 3, '2003-07-29', 'Pellets', 45),
 ('L4', 4, NULL, NULL, NULL),
-('L6', 6, '2003-08-20', 'Brine Shrimp', '165'),
-('L7', 7, '2003-07-28', 'Algae', '70');
+('L6', 6, '2003-08-20', 'Brine Shrimp', 165),
+('L7', 7, '2003-07-28', 'Algae', 70);
 
 INSERT INTO feedinglogs
 (log_id, tank_id, feed_date, food_type, amount_grams)
-VALUES ('L5', 5, '2003-08-02', 'Flakes', '60.3');
+VALUES ('L5', 5, '2003-08-02', 'Flakes', 60.3);
 
 -- Inserts for water quality logs table
 INSERT INTO waterqualitylogs
