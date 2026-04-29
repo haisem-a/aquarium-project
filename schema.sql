@@ -11,6 +11,11 @@ CREATE TABLE tanks (
 ALTER TABLE tanks
 ALTER COLUMN size_litres TYPE NUMERIC(8,2);
 
+ALTER TABLE tanks
+ADD CONSTRAINT check_water_type CHECK (water_type IN ('freshwater', 'saltwater')),
+ADD CONSTRAINT check_system_type CHECK (system_type IN ('open', 'semi-open', 'closed')),
+ADD CONSTRAINT check_size CHECK (size_litres > 0);
+
 -- Fish Species table schema
 CREATE TABLE fishspecies (
     species_code TEXT PRIMARY KEY,
@@ -43,6 +48,9 @@ CREATE TABLE feedinglogs (
 ALTER TABLE feedinglogs
 ALTER COLUMN amount_grams TYPE NUMERIC(8,2);
 
+ALTER TABLE feedinglogs
+ADD CONSTRAINT check_amount CHECK (amount_grams > 0);
+
 -- Water Quality Logs table schema
 CREATE TABLE waterqualitylogs (
     test_id TEXT PRIMARY KEY,
@@ -54,3 +62,8 @@ CREATE TABLE waterqualitylogs (
     hardness_ppm FLOAT,
     nitrite_ppm FLOAT
 );
+
+ALTER TABLE waterqualitylogs
+ADD CONSTRAINT check_ph CHECK (ph BETWEEN 0 AND 14),
+ADD CONSTRAINT check_nitrite CHECK (nitrite_ppm >= 0),
+ADD CONSTRAINT check_temperature CHECK (temperature_celsius > 0);
