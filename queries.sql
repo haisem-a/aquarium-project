@@ -9,6 +9,7 @@ VALUES (1, 115, 'freshwater', 'semi-open', 'outdoor exhibit', '2a'),
 (6, 421, 'freshwater', 'open', 'outdoor exhibit', '2c'),
 (7, 216, 'saltwater', 'semi-open', 'filtration room', '1a');
 
+--Inserting a test case for a LEFT JOIN query
 INSERT INTO tanks
 (tank_id, size_litres, water_type, system_type, location_type, location)
 VALUES (8, 264, 'freshwater', 'semi-open', 'outdoor exhibit', '2d');
@@ -133,7 +134,7 @@ SELECT * FROM tanks
 WHERE location LIKE '1%';
 
 --Show the unique food types ordered by the amount fed, excluding the top-fed tank and returning only 4
-SELECT DISTINCT food_type, tank_id, amount_grams FROM feedinglogs
+SELECT food_type, amount_grams FROM feedinglogs
 WHERE food_type IS NOT NULL
 ORDER BY amount_grams DESC
 LIMIT 4 OFFSET 1;
