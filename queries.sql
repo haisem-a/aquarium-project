@@ -133,7 +133,7 @@ WHERE size_litres BETWEEN 95 AND 125;
 SELECT * FROM tanks
 WHERE location LIKE '1%';
 
---Show the unique food types ordered by the amount fed, excluding the top-fed tank and returning only 4
+--Show the food types ordered by the amount fed, excluding the top-fed tank and returning only 4
 SELECT food_type, amount_grams FROM feedinglogs
 WHERE food_type IS NOT NULL
 ORDER BY amount_grams DESC
